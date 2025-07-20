@@ -9,14 +9,14 @@ import LogoComponent from "../svg-components/logoComponent.vue";
     <div class="header-container">
       <logo-component />
       <nav class="header-nav">
-        <ul class="header-nav-list">
-          <li class="header-nav-item">
-            <RouterLink to="/auth-api">AuthAPI</RouterLink>
-          </li>
-          <li class="header-nav-item">
-            <RouterLink to="/meme-api">MemeAPI</RouterLink>
-          </li>
-        </ul>
+        <div class="header-nav-list">
+          <RouterLink to="/auth-api" class="header-nav-item">
+            AuthAPI
+          </RouterLink>
+          <RouterLink to="/meme-api" class="header-nav-item">
+            MemeAPI
+          </RouterLink>
+        </div>
         <div class="header-actions">
           <themeButton />
           <langButton />

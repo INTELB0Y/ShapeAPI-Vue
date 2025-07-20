@@ -11,28 +11,33 @@ const text = store.text.main;
 
 <template>
   <section>
-    <div>
-      <div class="text-container">
-        <h1>{{ text.h1 }}</h1>
-        <p>{{ text.p }}</p>
+    <div class="main-container">
+      <div>
+        <div class="text-container">
+          <h1>{{ text.h1 }}</h1>
+          <p>{{ text.p }}</p>
+        </div>
+        <div class="button-container">
+          <github-button />
+          <donate-button />
+        </div>
+        <p class="engine">
+          Powered by <a href="https://github.com/INTELB0Y/ShapeAPI-Vue">Vue</a>
+        </p>
       </div>
-      <div class="button-container">
-        <github-button />
-        <donate-button />
-      </div>
-      <p class="engine">
-        Powered by <a href="https://github.com/INTELB0Y/ShapeAPI-Vue">Vue</a>
-      </p>
+      <shapes-comp />
     </div>
-    <shapes-comp />
   </section>
 </template>
 
 <style scoped lang="scss">
 section {
+  .main-container {
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between;
+  }
   padding: 8rem 3.25rem;
-  display: flex;
-  justify-content: space-between;
   .engine {
     font-family: "Montserrat", sans-serif;
     color: var(--text-color);
