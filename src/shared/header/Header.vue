@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import themeButton from "../svg-components/themeButton.vue";
-import LangButton from "../svg-components/langButton.vue";
-import LogoComponent from "../svg-components/logoComponent.vue";
+import themeButton from "../../components/svg-components/themeButton.vue";
+import LangButton from "../../components/svg-components/langButton.vue";
+import LogoComponent from "../../components/svg-components/logoComponent.vue";
 </script>
 
 <template>

@@ -7,14 +7,11 @@ export const useThemeStore = defineStore("themeStore", {
   actions: {
     toggleTheme() {
       this.dark = !this.dark;
-      // localStorage.setItem("theme", "dark")
+      localStorage.setItem("theme", JSON.stringify(this.dark));
     },
-    // initializeTheme() {
-    //     const preferredTheme = localStorage.getItem("theme")
-    //     if (preferredTheme === "dark") {
-    //         return this.dark = true
-    //     }
-    //     this.dark = false
-    // }
+    initializeTheme() {
+      const preferredTheme = localStorage.getItem("theme");
+      this.dark = preferredTheme ? JSON.parse(preferredTheme) : false;
+    },
   },
 });

@@ -6,13 +6,15 @@ import "./shared/styles/main.scss";
 import { createPinia } from "pinia";
 import { createConfig } from "shape-rq";
 
+const env = import.meta.env;
+
 createConfig({
   APIs: {
     PrivateAPI: {
-      baseUrl: import.meta.env.VITE__BASE_URL,
+      baseUrl: env.VITE__BASE_URL,
     },
     MemeAPI: {
-      baseUrl: import.meta.env.VITE__MEME_URL,
+      baseUrl: env.VITE__MEME_URL,
     },
   },
   lang: "ru",

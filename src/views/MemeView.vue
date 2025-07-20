@@ -1,73 +1,70 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { httpGet } from "shape-rq";
+import { useLangStore } from "../app/stores/langStore.ts";
+import type { ApiInfo } from "../shared/types.ts";
 
 const METHODS = ["GET", "POST", "PATCH", "DELETE", "PUT"] as const;
 
-const api = ref<{
+type Meme = {
+  id: number;
   title: string;
-  url: string;
-  methods: { title: string }[];
-} | null>(null);
+  image: string;
+};
 
-const getApi = async () => {
-  const res = await httpGet<{
-    title: string;
-    url: string;
-    methods: { title: string }[];
-  }>("PrivateAPI", "1", {
-    cache: true,
-  });
+const api = ref<ApiInfo | null>(null);
+const allowedMethods = ref<string[]>([]);
+const memes = ref<Meme[] | null>(null);
+
+const store = useLangStore();
+const text = computed(() => store.text.memes);
+
+async function fetchApiInfo() {
+  const res = await httpGet<ApiInfo>("PrivateAPI", "1", { cache: true });
   if (res) {
     api.value = res;
+    allowedMethods.value = res.methods.map((method) => method.name);
   }
-};
-getApi();
+}
 
-const memes = ref<
-  | {
-      id: number;
-      title: string;
-      image: string;
-    }[]
-  | null
->(null);
-
-const getMemes = async () => {
-  const res = await httpGet<{
-    data: { id: number; title: string; image: string }[];
-  }>("MemeAPI");
+async function fetchMemes() {
+  const res = await httpGet<{ data: Meme[] }>("MemeAPI", "", { cache: true });
   if (res) {
     memes.value = res.data;
   }
-};
+}
+
+fetchApiInfo();
+
+const getElements = fetchMemes;
 </script>
 
 <template>
   <section>
     <div class="main-container">
-      <h1>Мемы</h1>
-      <div class="api-info-container">
-        <p>{{ api?.url }}</p>
+      <h1>{{ text.h1 }}</h1>
+      <div class="api-info-container" v-if="api">
+        <p>{{ api.url }}</p>
         <div class="methods-container">
-          <span class="allowed">GET</span>
-          <span class="allowed">POST</span>
-          <span class="allowed">PATCH</span>
-          <span class="allowed">DELETE</span>
-          <span class="denied">PUT</span>
-          <button class="test-button" @click="getMemes">gimme</button>
+          <span
+            v-for="method in METHODS"
+            :key="method"
+            :class="allowedMethods.includes(method) ? `allowed` : `denied`"
+            >{{ method }}</span
+          >
+          <button class="test-button" @click="getElements">gimme</button>
         </div>
       </div>
     </div>
-    <div class="memes-container">
-      <div class="memes-card-container">
-        <div class="meme-card" v-for="meme in memes">
+    <TransitionGroup name="fade" tag="div" class="memes-container">
+      <div class="memes-card-container" key="memes-card-container">
+        <div class="meme-card" v-for="meme in memes" :key="meme.id">
           <img :src="meme.image" :alt="meme.title" />
           <p>{{ meme.title }}</p>
         </div>
       </div>
       <pre v-if="memes"><code>{{ JSON.stringify(memes, null, 2) }}</code></pre>
-    </div>
+    </TransitionGroup>
   </section>
 </template>
 
@@ -78,6 +75,18 @@ const getMemes = async () => {
   background-color: var(--mono-links-color);
   border: 1px solid var(--mono-links-border-color);
   border-radius: 0.625rem;
+}
+
+.fade-enter-from {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.fade-enter-to {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fade-enter-active {
+  transition: all 0.5s ease;
 }
 
 section {

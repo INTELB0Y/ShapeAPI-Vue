@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import GithubButton from "../shared/buttons/githubButton.vue";
-import ShapesComp from "../shared/svg-components/shapesComp.vue";
+import ShapesComp from "../components/svg-components/shapesComp.vue";
 import { useLangStore } from "../app/stores/langStore.ts";
 import DonateButton from "../shared/buttons/donateButton.vue";
+import { computed } from "vue";
 
 const store = useLangStore();
 
-const text = store.text.main;
+const text = computed(() => store.text.main);
 </script>
 
 <template>
