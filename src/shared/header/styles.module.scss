@@ -1,0 +1,61 @@
+@mixin transition {
+  transition: ease-in-out;
+  transition-duration: 0.3s;
+}
+
+.header-root {
+  box-shadow: 0 11px 27px -5px rgba(34, 60, 80, 0.05);
+}
+
+.header-container {
+  padding: 0 3.25rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+}
+
+.header-actions {
+  display: flex;
+  gap: 1rem;
+  button {
+    background-color: transparent;
+    border: none;
+    padding: 0.25rem;
+    border-radius: 100%;
+    align-self: center;
+    @include transition;
+    &:hover {
+      background-color: var(--hover-color);
+    }
+  }
+}
+
+.header-nav-list {
+  list-style: none;
+  display: flex;
+  padding-right: 5rem;
+}
+
+.header-nav-item {
+  padding: 1rem;
+  cursor: pointer;
+  align-items: center;
+  @include transition;
+  border-bottom: 0.125rem solid transparent;
+  &:hover {
+    background-color: var(--hover-color);
+    border-color: var(--secondary-color);
+  }
+  button {
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    font-family: "STIX Two Text", serif;
+    color: var(--secondary-color);
+    cursor: pointer;
+  }
+}

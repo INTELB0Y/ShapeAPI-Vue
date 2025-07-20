@@ -1,0 +1,13 @@
+:root {
+  --primary-color: #f8fafd;
+  --secondary-color: #203246;
+  --hover-color: #f0f2f5;
+  --text-color: #556372;
+  --radius: 8px;
+}
+[data-theme="dark"] {
+  --primary-color: #181a1b;
+  --secondary-color: #a3b1c6;
+  --hover-color: #23272b;
+  --text-color: #8a99ad;
+}
