@@ -55,6 +55,7 @@ const getElements = fetchMemes;
           <button class="test-button" @click="getElements">gimme</button>
         </div>
       </div>
+      <p v-else>{{ text.apiNotAvailable }}</p>
     </div>
     <TransitionGroup name="fade" tag="div" class="memes-container">
       <div class="memes-card-container" key="memes-card-container">
