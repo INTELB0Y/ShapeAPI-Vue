@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { useThemeStore } from "../../stores/themeStore.ts";
+import { useThemeStore } from "../../app/stores/themeStore.ts";
 
 const themeStore = useThemeStore();
 const theme = computed(() => (themeStore.dark ? "dark" : "light"));

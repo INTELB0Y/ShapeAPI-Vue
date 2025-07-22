@@ -1,7 +1,15 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useLangStore } from "../../app/stores/langStore.ts";
+
+const store = useLangStore();
+
+const changeLanguage = () => {
+  store.changeLang();
+};
+</script>
 
 <template>
-  <button class="langChange">
+  <button class="langChange" @click="changeLanguage">
     <svg
       width="28"
       height="28"

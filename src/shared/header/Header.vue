@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import themeButton from "../buttons/themeButton.vue";
-import LangButton from "../buttons/langButton.vue";
-import LogoComponent from "../logoComponent.vue";
+import themeButton from "../svg-components/themeButton.vue";
+import LangButton from "../svg-components/langButton.vue";
+import LogoComponent from "../svg-components/logoComponent.vue";
 </script>
 
 <template>
@@ -11,10 +11,10 @@ import LogoComponent from "../logoComponent.vue";
       <nav class="header-nav">
         <ul class="header-nav-list">
           <li class="header-nav-item">
-            <button>AuthAPI</button>
+            <RouterLink to="/auth-api">AuthAPI</RouterLink>
           </li>
           <li class="header-nav-item">
-            <button>MemeAPI</button>
+            <RouterLink to="/meme-api">MemeAPI</RouterLink>
           </li>
         </ul>
         <div class="header-actions">
