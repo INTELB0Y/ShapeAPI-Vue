@@ -47,8 +47,7 @@ section {
     a {
       color: var(--text-color);
       text-decoration: none;
-      transition: ease-in-out;
-      transition-duration: 0.2s;
+      transition: ease-in-out 0.2s;
       cursor: pointer;
       padding: 0 0.125rem;
       border-radius: 10%;
@@ -62,8 +61,7 @@ section {
     gap: 1rem;
   }
   .text-container {
-    transition: ease-out;
-    transition-duration: 0.2s;
+    transition: ease-out 0.2s;
     h1 {
       font-family: "Montserrat", sans-serif;
       color: var(--secondary-color);

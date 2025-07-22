@@ -96,8 +96,7 @@ section {
   }
   padding: 3rem 3.25rem;
   font-family: "Monserrat", sans-serif;
-  transition: ease-in;
-  transition-duration: 0.2s;
+  transition: 0.2s ease-in;
   .api-info-container {
     margin-top: 1rem;
     max-width: fit-content;

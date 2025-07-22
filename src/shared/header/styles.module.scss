@@ -1,6 +1,5 @@
 @mixin transition {
-  transition: ease-in-out;
-  transition-duration: 0.3s;
+  transition: ease-in-out 0.3s;
 }
 
 .header-root {

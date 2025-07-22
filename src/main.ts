@@ -16,6 +16,9 @@ createConfig({
     MemeAPI: {
       baseUrl: env.VITE__MEME_URL,
     },
+    AuthAPI: {
+      baseUrl: env.VITE__AUTH_URL,
+    },
   },
   lang: "ru",
   debug: true,
