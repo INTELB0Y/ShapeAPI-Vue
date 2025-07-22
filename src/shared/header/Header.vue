@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import themeButton from "../svg-components/themeButton.vue";
-import LangButton from "../svg-components/langButton.vue";
-import LogoComponent from "../svg-components/logoComponent.vue";
+import themeButton from "../../components/svg-components/themeButton.vue";
+import LangButton from "../../components/svg-components/langButton.vue";
+import LogoComponent from "../../components/svg-components/logoComponent.vue";
 </script>
 
 <template>
@@ -9,14 +9,14 @@ import LogoComponent from "../svg-components/logoComponent.vue";
     <div class="header-container">
       <logo-component />
       <nav class="header-nav">
-        <ul class="header-nav-list">
-          <li class="header-nav-item">
-            <RouterLink to="/auth-api">AuthAPI</RouterLink>
-          </li>
-          <li class="header-nav-item">
-            <RouterLink to="/meme-api">MemeAPI</RouterLink>
-          </li>
-        </ul>
+        <div class="header-nav-list">
+          <RouterLink to="/auth-api" class="header-nav-item">
+            AuthAPI
+          </RouterLink>
+          <RouterLink to="/meme-api" class="header-nav-item">
+            MemeAPI
+          </RouterLink>
+        </div>
         <div class="header-actions">
           <themeButton />
           <langButton />

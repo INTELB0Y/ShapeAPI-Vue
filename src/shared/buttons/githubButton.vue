@@ -1,11 +1,12 @@
 <script setup lang="ts"></script>
 
 <template>
-  <button>GitHub</button>
+  <a href="https://github.com/INTELB0Y/PublicWebApi">GitHub</a>
 </template>
 
 <style lang="scss" scoped>
-button {
+a {
+  text-decoration: none;
   color: var(--primary-color);
   background-color: var(--secondary-color);
   padding: 0.02rem 3rem;

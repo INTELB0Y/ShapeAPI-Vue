@@ -5,11 +5,13 @@ import { useThemeStore } from "../../app/stores/themeStore.ts";
 const themeStore = useThemeStore();
 const theme = computed(() => (themeStore.dark ? "dark" : "light"));
 
+const initTheme = () => themeStore.initializeTheme();
+
 const toggleTheme = () => {
   themeStore.toggleTheme();
   document.body.dataset.theme = theme.value;
 };
-
+initTheme();
 document.body.dataset.theme = theme.value;
 </script>
 

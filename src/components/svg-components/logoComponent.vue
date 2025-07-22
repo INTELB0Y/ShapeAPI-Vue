@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="container">
+  <RouterLink to="/" class="container">
     <svg
       width="136"
       height="31"
@@ -14,7 +14,7 @@
         fill="currentColor"
       />
     </svg>
-  </div>
+  </RouterLink>
 </template>
 
 <style scoped>
