@@ -1,11 +1,12 @@
 <script setup lang="ts"></script>
 
 <template>
-  <button>donate</button>
+  <a href="http://hipolink.me/intelboy">donate</a>
 </template>
 
 <style scoped>
-button {
+a {
+  text-decoration: none;
   background-color: var(--primary-color);
   padding: 0.02rem 1rem;
   border-radius: var(--radius);
